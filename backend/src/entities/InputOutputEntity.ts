@@ -1,11 +1,10 @@
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { CoreCRUDEntity } from "./CoreCRUDEntity";
 
 
 @Entity({ schema: 'financial', name: 'input_output' })
-export class InputOutput {
-  @PrimaryGeneratedColumn('uuid')
-  id: string;
-
+export class InputOutput extends CoreCRUDEntity {
+  
   @Column({ type: 'date', name: 'evente_date' })
   eventDate: Date;
 
@@ -15,6 +14,4 @@ export class InputOutput {
   @Column({ type: 'varchar', length: 255, name: 'event_description', nullable: true })
   eventDescription: string;
 
-  @Column({ type: 'timestamp', name: 'created_at', default: () => 'CURRENT_TIMESTAMP' })
-  createdAt: Date;
 }
