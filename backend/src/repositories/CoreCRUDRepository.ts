@@ -32,4 +32,12 @@ export abstract class CoreCRUDRepository<T extends { id: string }> {
     const result = await this.repository.delete(id);
     return result.affected !== 0;
   }
+
+  async save(data: DeepPartial<T>): Promise<T>{
+    return this.repository.save(data)
+  }
+
+  merge(entity: T, data: DeepPartial<T>): T{
+    return this.repository.merge(entity, data)
+  }
 }
