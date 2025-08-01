@@ -36,4 +36,28 @@ export abstract class CoreCRUDController<T extends { id: string }> {
             res.status(500).json({message: "Error updating item", error})
         }
     }
+
+    async findById(req: Request, res: Response): Promise<void>{
+        try {
+            const id = req.params.id;
+            const item = await this.service.findById(id)
+        if (item){
+            res.json(item);
+        } else {
+            res.status(404).json({message: "Item not found"})
+        }
+        } catch (error) {
+            res.status(500).json({message: "Error fetching item", error})
+        }
+    }
+
+    async delete(req: Request, res: Response): Promise<void>{
+        try{
+            const id = req.params.id;
+            await this.service.delete(id);
+            res.status(204).send()
+        } catch(error){
+            res.status(500).json({message: "Error fetching item", error})
+        }
+    }
 }

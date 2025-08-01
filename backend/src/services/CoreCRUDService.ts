@@ -12,7 +12,7 @@ export abstract class CoreCRUDService<T extends { id: string }> {
         return this.repository.findAll()
     }
 
-    get(id: string): Promise<T | null> {
+    findById(id: string): Promise<T | null> {
         return this.repository.findById(id)
     }
 
@@ -33,4 +33,6 @@ export abstract class CoreCRUDService<T extends { id: string }> {
     delete(id: string): Promise<boolean> {
         return this.repository.delete(id)
     }
+
+
 }
