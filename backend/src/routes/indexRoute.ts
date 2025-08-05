@@ -1,5 +1,5 @@
 import { Router } from "express";
-import inputOutputRoutes from "./inputOutput"
+import inputOutputRoutes from "./inputOutputRoute"
 
 const router = Router();
 
