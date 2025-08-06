@@ -7,8 +7,8 @@ export const AppDataSource = new DataSource({
     username: "postgres",
     password: "12345678",
     database: "sistema_icav",
-    synchronize: true,
-    logging: false,
+    synchronize: false,
+    logging: true,
     entities: ["src/entities/**/*.ts"],
-    migrations: [],
+    migrations: ["src/migrations/**/*.ts"],
 })

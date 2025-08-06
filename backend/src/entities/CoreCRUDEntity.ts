@@ -16,6 +16,6 @@ export abstract class CoreCRUDEntity {
     createdBy: UserEntity;
 
     @ManyToOne(() => UserEntity)
-    @JoinColumn({ name: 'update_by'})
+    @JoinColumn({ name: 'updated_by'})
     updateBy: UserEntity
 }
